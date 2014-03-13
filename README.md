@@ -1,4 +1,4 @@
-AMM
+AMMI
 ===
 
 Progetto di AMM
