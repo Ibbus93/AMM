@@ -2,7 +2,7 @@
 	session_start();
     $ip =  "localhost";
     $user = "ibbaFederico";
-	$password = "serpente220"
+    $password = "serpente220"
     $db = "amm14_ibbaFederico";
 
     $mysqli = new mysqli();
