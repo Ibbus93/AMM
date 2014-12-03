@@ -11,7 +11,7 @@
 		$result = $mysqli->query($query);
    
 		$row = $result->fetch_row();
-	   	$var = new Monitor ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9]);
+	   	$var = new Monitor ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11]);
 		
 		
 	}
@@ -23,7 +23,7 @@
 		
 		$row = $result->fetch_row();
 		
-		$var = new Computer ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[12]);
+		$var = new Computer ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[12], $row[13]);
 	}      
 ?>
 	<div class="row"> <!-- Usata per nome articolo o titolo pagina -->
@@ -59,56 +59,107 @@
 				echo"<img class='cart-art-image' src='assets/images/cart.jpg' alt='Aggiungi al carrello'>";
 		?>
 		</div>
-	</div>
+	</div><!--
 	
-	<div class='table-caratt'>
+	--><div class='row bott'>
+		<?php echo "{$var->getDescription()}" ?>
+	</div><!--
+	--><div class='table-caratt'>
+		<div>	
 		<?php
 			if($sc == 'mon'){ //visualizzo gli articoli con le caratteristiche dei monitor ?>
-				<!--<table>
-					<caption>Scheda tecnica</caption>
+					<!--
+						<b>Marca</b><div class='art-c'><?php// echo "{$var->getMarca()}" ?></div><br>
+						<b>Modello</b><div class='art-c'><?php //echo "{$var->getModello()}" ?></div><br>
+						<b>Risoluzione</b><div class='art-c'><?php //echo "{$var->getRisoluzione()}" ?></div><br>
+						<b>Formato</b><div class='art-c'><?php //echo "{$var->getFormato()}" ?></div><br>
+						<b>3D</b><div class='art-c'><?php //echo "{$var->getTreD()}" ?></div><br>
+						<b>Altoparlanti</b><div class='art-c'><?php// echo "{$var->getAltoparlanti()}" ?></div><br>
+					-->
+					<table class="art-tab">
+						<tbody>
+							<tr>
+								<td><b>Marca</b></td>
+								<td class='lf'><?php echo "{$var->getMarca()}" ?></td>
+							</tr>
+							<tr>
+								<td><b>Modello</b></td>
+								<td class='lf'><?php echo "{$var->getModello()}" ?></td>
+							</tr>
+							<tr>
+								<td><b>Pollici</b></td>
+								<td class='lf'><?php echo "{$var->getPollici()}''" ?></td>
+							</tr>							
+							<tr>
+								<td><b>Risoluzione</b></td>
+								<td class='lf'><?php echo "{$var->getRisoluzione()}" ?></td>
+							</tr>
+							<tr>
+								<td><b>Formato</b></td>
+								<td class='lf'><?php echo "{$var->getFormato()}" ?></td>
+							</tr>
+							<tr>
+								<td><b>3D</b></td>
+								<td class='lf'><?php echo "{$var->getTreD()}" ?></td>
+							</tr>
+							<tr>
+								<td><b>Altoparlanti</b></td>
+								<td class='lf'><?php echo "{$var->getAltoparlanti()}" ?></td>
+							</tr>
+						</tbody>
+					</table>
+					
+	<?php }
+		else { 	    	  //caratteristiche computer ?>
+				<table class="art-tab">
+					<tbody>
 						<tr>
-							<td>Formato</td>
-							<td><?php/* echo "{$var->getFormato()}"; */?></td>
-						</tr>				
-				</table> -->
-				<table>
-  <caption>Design and Front-End Development Books</caption>
-  <thead>
-    <tr>
-      <th scope="col" colspan="2">Item</th>
-      <th scope="col">Qty</th>
-      <th scope="col">Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Don&#8217;t Make Me Think by Steve Krug</td>
-      <td>In Stock</td>
-      <td>1</td>
-      <td>$30.02</td>
-    </tr>
-    ...
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="3">Subtotal</td>
-      <td>$135.36</td>
-    </tr>
-    <tr>
-      <td colspan="3">Tax</td>
-      <td>$13.54</td>
-    </tr>
-    <tr>
-      <td colspan="3">Total</td>
-      <td>$148.90</td>
-    </tr>
-  </tfoot>
-</table>
-			<?php }
-			else { 	    	  //caratteristiche computer ?>
-				<ul>
-				
-				</ul>
-			<?php }
-		?>
+							<td><b>Marca</b></td>
+							<td class='lf'><?php echo "{$var->getMarca()}" ?></td>
+						</tr>
+						<tr>
+							<td><b>Modello</b></td>
+							<td class='lf'><?php echo "{$var->getModello()}" ?></td>
+						</tr>
+						<tr>
+							<td><b>Sistema Operativo</b></td>
+							<td class='lf'><?php echo "{$var->getOs()}" ?></td>
+						</tr>							
+						<?php if($var->getMonitor()) { ?>
+						<tr>
+							<td><b>Monitor</b></td>
+							<td class='lf'><?php echo "{$var->getMonitor()}''" ?></td>
+						</tr> <?php } ?>
+						<tr>
+							<td><b>CPU</b></td>
+							<td class='lf'><?php echo "{$var->getCPU()}" ?></td>
+						</tr>
+						<tr>
+							<td><b>Scheda video</b></td>
+							<td class='lf'><?php echo "{$var->getVideo()}" ?></td>
+						</tr>
+						<tr>
+							<td><b>Ram</b></td>
+							<td class='lf'><?php echo "{$var->getRam()} GB" ?></td>
+						</tr>
+						<tr>
+							<td><b>Hard Disk</b></td>
+							<td class='lf'><?php echo "{$var->getHd()} GB" ?></td>
+						</tr>
+												<tr>
+							<td><b>Memory Card Reader</b></td>
+							<td class='lf'>
+							<?php 
+								if($var->getMemoryCard())  
+									echo "Si";
+								else
+									echo "No";
+							?>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		<?php }
+	?>
 	</div>
+</div>

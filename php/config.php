@@ -1,12 +1,11 @@
 <?php
-    session_start();
+	session_start();
     $ip =  "localhost";
-    $user = "ibbaFederico";
-    $password = "serpente220";
-    $db = "amm14_ibbaFederico";
+    $user = "root";
+    $db = "project";
 
     $mysqli = new mysqli();
-    $mysqli->connect($ip, $user, $password, $db);
+    $mysqli->connect($ip, $user, '', $db);
     
     // verifico la presenza di errori
     if($mysqli->connect_errno!= 0){

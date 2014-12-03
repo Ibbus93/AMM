@@ -13,12 +13,13 @@
         private $ram;           // description
         private $hd;            // description
         private $memoryCard;    // yes/no
-        private $photo;         // path che reindirizza alla foto del prodotto
-        private $code;          // codice identificativo del prodotto
         private $price;         // prezzo del modello
         private $num;           // numero rimanenze in magazzino
+		private $photo;         // path che reindirizza alla foto del prodotto
+		private $description;	// descrizione articolo
+		private $code;          // codice identificativo del prodotto
         
-        public function __construct($marca, $modello, $os, $monitor, $cpu, $video, $ram, $hd, $memoryCard, $price, $num, $photo, $code) {
+        public function __construct($marca, $modello, $os, $monitor, $cpu, $video, $ram, $hd, $memoryCard, $price, $num, $photo, $description, $code) {
             $this->marca = $marca;
             $this->modello = $modello;
             $this->os= $os;
@@ -28,10 +29,12 @@
             $this->ram = $ram;
             $this->hd = $hd;
             $this->memoryCard = $memoryCard;
-            $this->photo = $photo;
-            $this->code = $code;
-            $this->price = $price;
+			$this->price = $price;
             $this->num = $num;
+            $this->photo = $photo;
+			$this->description = $description;
+            $this->code = $code;
+
         }
         
         public function getMarca(){
@@ -69,15 +72,7 @@
         public function getMemoryCard(){
             return $this->memoryCard;
         }
-        
-        public function getPhoto(){
-            return $this->photo;
-        }
-        
-        public function getCode(){
-            return $this->code;
-        }        
-        
+		
         public function getPrice(){
             return $this->price;   
         }
@@ -85,6 +80,19 @@
         public function getNum(){
             return $this->num;
         }
+                
+        public function getPhoto(){
+            return $this->photo;
+        }
+
+        public function getDescription(){
+            return $this->description;
+        }		
         
+        public function getCode(){
+            return $this->code;
+        }        
+        
+
     }
 ?>

@@ -1,4 +1,0 @@
-AMMIS
-===
-
-Progetto di AMM

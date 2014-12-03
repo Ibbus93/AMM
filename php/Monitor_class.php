@@ -6,6 +6,7 @@
     class Monitor {
         private $marca;         // name
         private $modello;       // sign
+		private $pollici;		// pollici
         private $risoluzione;   // 800*600
         private $formato;       // 16:9
         private $treD;          // si/no boolean
@@ -13,12 +14,14 @@
 		private $num;			// numero articoli disponibili
 		private $price;			// prezzo
 		private $photo;			// path percorso
+		private $description;	// descrizione articolo
         private $code;          // codice
 
         
-        public function __construct($marca, $modello, $risoluzione, $formato, $treD, $altoparlanti, $num, $price, $photo, $code) {
+        public function __construct($marca, $modello, $pollici, $risoluzione, $formato, $treD, $altoparlanti, $num, $price, $photo, $description, $code) {
             $this->marca = $marca;
             $this->modello = $modello;
+			$this->pollici = $pollici;
             $this->risoluzione= $risoluzione;
 			$this->formato = $formato;
             $this->treD = $treD;
@@ -26,6 +29,7 @@
 			$this->num = $num;
 			$this->price = $price;
 			$this->photo = $photo;
+			$this->description = $description;
             $this->code = $code;
         }
         
@@ -36,6 +40,10 @@
         public function getModello(){
             return $this->modello;
         }
+		
+        public function getPollici(){
+            return $this->pollici;
+        }		
         
         public function getRisoluzione(){
             return $this->risoluzione;
@@ -65,8 +73,12 @@
             return $this->photo;
         }
         
+        public function getDescription(){
+            return $this->description;
+        }
+
         public function getCode(){
             return $this->code;
-        }
+        }		
     }
 ?>
