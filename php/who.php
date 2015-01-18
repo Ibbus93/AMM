@@ -1,4 +1,3 @@
-<h1>Inserisci mysqli->close() ovunque!</h1>
 <h2>Descrizione progetto</h2>
 <p>Il sito YourBestPC &egrave; un negozio online in cui &egrave; possibile acquistare dei prodotti: per semplicit&agrave; legata allo sviluppo,
 i prodotti acquistabili sono pc desktop, notebook, netbook e monitor.
