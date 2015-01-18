@@ -8,8 +8,8 @@ if(isset($_POST['acquisto'])){
 
 	$mysqli->autocommit(false);
 	
-	echo "Soldi inseriti: $money <br>";
-	echo "Soldi richiesti: $totale <br>";
+	//echo "Soldi inseriti: $money <br>";
+	//echo "Soldi richiesti: $totale <br>";
 	
 	//Controllo se ci sono PC
 	//$query = "SELECT * FROM computer INNER JOIN cart WHERE cart.id_utente = '$userid' AND cart.id_computer = computer.code";
@@ -38,18 +38,18 @@ if(isset($_POST['acquisto'])){
 			$aux = $resNum->fetch_row();
 			$numCart = $aux[0];
 			
-			echo "Tizio vuole acquistare $numCart PC e in magazzeno ce ne sono attualmente $numDisp<br>";
+			//echo "Tizio vuole acquistare $numCart PC e in magazzeno ce ne sono attualmente $numDisp<br>";
 		
 			$query = "DELETE FROM cart WHERE id_computer = $listID[$i] AND id_utente = $userid";
-			echo "i = $i<br>";
+			//echo "i = $i<br>";
 			if(!($mysqli->query($query))){
 				echo "Errore nella query pc";
 			}
 			
 			$toDel = $numDisp - $numCart;
 			$query = "UPDATE computer SET num = $toDel WHERE code = $listID[$i]";
-			echo "Il numero dei pc deve diventare $toDel<br>";
-			echo "$query<br>";
+			//echo "Il numero dei pc deve diventare $toDel<br>";
+			//echo "$query<br>";
 			
 			if(!($mysqli->query($query))){
 				echo "Errore nella query todel<br>";
@@ -75,7 +75,7 @@ if(isset($_POST['acquisto'])){
 			$query = "DELETE FROM cart WHERE id_monitor = $listIDM[$j] AND id_utente = $userid";
 			echo "j = $j<br>";
 			if(!($mysqli->query($query))){
-				echo "Errore nella query pc";
+				echo "Errore nella query monitor";
 			}
 			$j++;
 		}
