@@ -43,4 +43,6 @@
 	</form>
 </div>
 
-<?php } ?>
+<?php } 
+	$mysqli->close();
+?>

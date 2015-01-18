@@ -137,6 +137,7 @@ h2{
 
 h3{
 	font-size: 21px;
+	padding-left: 8px;
 }
 
 h4{
@@ -285,7 +286,6 @@ li {
 /* DIV ARTICLE LIST */
 
 .box-article{
-	width: 100%;
 	height: 120px;
 	border: 2px solid #DF3013;
 	border-radius: 5px;
@@ -293,6 +293,14 @@ li {
 	margin: 5px 5px 5px 5px;
 	display: inline-block;
 	float: left;
+}
+
+.cart-art-box {
+	width: 819px;
+}
+
+.box-art-w {
+	width: 100%;
 }
 
 .box-image-article{
@@ -316,6 +324,7 @@ li {
 .name-article h3{
 	text-transform: uppercase;
 	text-align: left;
+	padding-left: initial;
 }
 
 .box-price-article{
@@ -332,7 +341,7 @@ li {
 
 .table-caratt table{
 	padding: 2px;
-	margin: 8px;
+	margin: 0 8px 30px 8px;
 }
 
 .art-link {
@@ -355,9 +364,16 @@ li {
 }
 
 .price-article{
-	display: inline-block;
-	margin-left: 0;
-	margin-bottom: 0;
+	margin: -4px 0 0 5px;
+}
+
+.num-cart {
+	float: right;
+	margin-top: -43px;
+	/* margin-left: 0px; */
+	border: 1px solid;
+	border-radius: 5px;
+	text-align: center;
 }
 
 /* FOOTER */
@@ -552,7 +568,7 @@ li {
 	margin: 20px 0 20px 60px;
 	padding: 15px;
 	border-radius: 5px;
-	border: 1px solid #c6c9cc;
+	/*border: 1px solid #c6c9cc;*/
 	max-width: 860px;
 }
 
@@ -577,6 +593,18 @@ li {
 	border: 1px solid #DF3013;
 }
 
+#civic{
+	width: 100px;
+}
+
+#cap {
+	width: 100px;
+}
+
+#provincia {
+	width: 100px;
+}
+
 /* CONDIZIONI DI VENDITA */
 
 .ol-cond{
@@ -587,6 +615,22 @@ li {
 	margin-left: 45px;
 	line-height: 28px;
 	list-style-type: disc;	
+}
+
+.li-square li{
+	list-style-type: square;
+}
+
+.li-lower-alpha li{
+	list-style-type: lower-alpha;
+}
+
+.li-upper-roman li{
+	list-style-type: upper-roman;
+}
+
+.h3-cond {
+	padding-left: 0;
 }
 
 /* CART */
@@ -614,7 +658,7 @@ li {
 	width: 30px;
 	height: 30px;
 	margin-top: 11px;
-	margin-left: 17px;	
+	margin-left: 2px;	
 }
 
 /* ARTICLE PAGE */

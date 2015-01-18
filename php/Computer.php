@@ -36,6 +36,16 @@
             $this->code = $code;
 
         }
+		
+		public function getType(){
+			if( $this->monitor > 0){
+				if($this->monitor > 14)
+					return "note";
+				else
+				return "net";
+		} else
+			return "desk";
+		}
         
         public function getMarca(){
             return $this->marca;
@@ -92,7 +102,6 @@
         public function getCode(){
             return $this->code;
         }        
-        
 
     }
 ?>

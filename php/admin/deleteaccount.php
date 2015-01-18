@@ -1,10 +1,11 @@
 <?php
 
 if(isset($_POST['delete'])){
-	/*if($admin['admin'] == 0)
+	if($_SESSION['admin'] != $_SESSION['username'])
 		$username = $_SESSION['username'];
 	else
-		$username = $_POST['username'];*/
+		$username = $_POST['username'];
+		
 	$query = "DELETE FROM utente WHERE username = '$username'";
 	
 	if ($_SESSION['username'] == $username){
@@ -25,6 +26,7 @@ if(isset($_POST['delete'])){
 					//logout
 					$_SESSION = array();
 					session_destroy();
+					header("refresh:3;url='?page=home'" );
 				}
 				else
 					echo "Errore nella query <br>";
@@ -72,7 +74,7 @@ else {
 	
 	?>
 			<div class='div-admin'>
-				<form action='?page=account&nk=deleteaccount' method='POST'>
+				<form action='?page=deleteaccount' method='POST'>
 					Utente da eliminare:<br>
 					<select name="username" title="Seleziona l'utente" required>
 						<option value="" selected>Scegli l'utente</option>
@@ -89,7 +91,7 @@ else {
 <?php
 		}else{ //se non sono admin devo solo confermare l'eventuale cancellazione dell'account ?>
 			<p>Sei sicuro di voler eliminare il tuo account?</p>
-			<form action='?page=account&nk=deleteaccount' method='POST'>
+			<form action='?page=deleteaccount' method='POST'>
 				<input class='del-btn' type="submit" name="delete" value="Si">
 			</form><!--
 			--><form action='?page=account' method='POST'>

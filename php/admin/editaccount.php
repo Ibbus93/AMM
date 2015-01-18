@@ -58,9 +58,9 @@
 					echo "Errore nella query.<br>";
 		}
 				
-	}elseif(isset($_POST['edit']) || ($admin['admin'] == 0)){ //se ho scelto chi deve essere modificato
+	}elseif(isset($_POST['edit']) || ($_SESSION['admin'] != $_SESSION['username'])){ //se ho scelto chi deve essere modificato
 	
-		if($admin['admin'] == 0)
+		if($_SESSION['admin'] != $_SESSION['username'])
 			$usernameold = $_SESSION['username'];
 		else
 			$usernameold = $_POST['username'];
@@ -75,7 +75,7 @@
 			$row = $result->fetch_assoc();
 ?>
 			<div class='div-admin'>
-				<form class="reg-form" action="?page=account&nk=editaccount" method='POST'>
+				<form class="reg-form" action="?page=editaccount" method='POST'>
 					<fieldset class="register-group">
 						<label>
 							Nome
@@ -118,13 +118,13 @@
 									
 						<label>
 							N. civico
-							<input type="number" name="numero" min='1' value='<?php echo"{$row['numero']}";?>' placeholder="Civico" title="Inserisci il tuo numero civico" required>
+							<input id="civic" type="number" name="numero" min='1' maxlength='4' value='<?php echo"{$row['numero']}";?>' placeholder="Civico" title="Inserisci il tuo numero civico" required>
 						</label>
 
 						<br>
 						<label>
 							CAP
-							<input type="text" name="cap" placeholder="CAP" value='<?php echo"{$row['cap']}";?>' pattern="^[0-9]{5}" maxlength='5' title="Il CAP (Codice Avviamento Postale) &egrave; formato da 5 numeri" required> <!-- Il pattern vuole solo 5 numeri -->
+							<input id="cap" type="text" name="cap" placeholder="CAP" value='<?php echo"{$row['cap']}";?>' pattern="^[0-9]{5}" maxlength='5' title="Il CAP (Codice Avviamento Postale) &egrave; formato da 5 numeri" required> <!-- Il pattern vuole solo 5 numeri -->
 						</label>	
 									
 						<label> 
@@ -134,7 +134,7 @@
 									
 						<label> 
 							Provincia
-							<input type="text" name="provincia" placeholder="Provincia" value='<?php echo"{$row['provincia']}";?>' maxlength='2' title="Inserisci la tua provincia" required>
+							<input id="provincia" type="text" name="provincia" placeholder="Provincia" value='<?php echo"{$row['provincia']}";?>' maxlength='2' title="Inserisci la tua provincia" required>
 						</label>	
 						<br>
 
@@ -192,7 +192,7 @@
 		
 		?>
 		<div class='div-admin'>
-			<form action='?page=account&nk=editaccount' method='POST'>
+			<form action='?page=editaccount' method='POST'>
 				Utente da modificare:<br>
 				<select name="username" title="Seleziona l'utente" required>
 					<option value="" selected>Scegli l'utente</option>

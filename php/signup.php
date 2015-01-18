@@ -1,3 +1,13 @@
+<?php
+	if(!isset($_SESSION['username']) && !isset($_SESSION['admin'])) {
+	?>
+		<div class='titolo'>
+			<h2><b>Pagina di registrazione</b></h2>
+		</div>
+	<?php
+	}
+?>
+
 <div class='div-admin'>
 	<form class="reg-form" action="index.php?page=inviodati" method='POST'>
 		<fieldset class="register-group">

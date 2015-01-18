@@ -38,5 +38,6 @@
 		    		</div>
 		    	<?php	$i++;		        	
 		        } 
+	$mysqli->close();			
 ?>
 			

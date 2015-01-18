@@ -1,5 +1,5 @@
 <?php
-
+if(isset($pg)){
 	switch($pg){
 		case 'list':
 			if(isset($art))
@@ -15,7 +15,22 @@
 			break;
 		case 'insert':
 			include('php/admin/insertart.php');
+			break;			
+		case 'insertpc':
+			include('php/admin/insertpc.php');
 			break;
+		case 'insertmon':
+			include('php/admin/insertmon.php');
+			break;			
+		case 'editart':
+			include('php/admin/editart.php');
+			break;
+		case 'deleteaccount':
+			include('php/admin/deleteaccount.php');
+			break;		
+		case 'editaccount':
+			include('php/admin/editaccount.php');
+			break;					
 		case 'conditions':
 			include('php/conditions.php');
 			break;
@@ -55,4 +70,5 @@
 		default:
 			include('view/home.php');
 	}
+}
 ?>				

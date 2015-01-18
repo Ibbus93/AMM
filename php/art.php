@@ -13,7 +13,7 @@
 		$row = $result->fetch_row();
 	   	$var = new Monitor ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11]);
 		
-		
+		$aux = 'mon';
 	}
 	else{
 		// html computer
@@ -24,6 +24,7 @@
 		$row = $result->fetch_row();
 		
 		$var = new Computer ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[12], $row[13]);
+		$aux = 'pc';
 	}      
 ?>
 	<div class="row"> <!-- Usata per nome articolo o titolo pagina -->
@@ -49,15 +50,16 @@
 		--><div class="cart-article"><!-- contenitore immagine carrello -->
 		<?php
 			if($var->getNum() > 0){
-				if($sc == 'mon')
-					echo "<a href='?page=opcart&type=mon&sc=add&code={$var->getCode()}'>";
-				else
-					echo "<a href='?page=opcart&type=pc&sc=add&code={$var->getCode()}'>";
-				echo"<img class='cart-art-image' src='assets/images/cart.jpg' alt='Aggiungi al carrello'></a>";
-			}
-			else 
-				echo"<img class='cart-art-image' src='assets/images/cart.jpg' alt='Aggiungi al carrello'>";
-		?>
+				if(isset($_SESSION['username'])) {
+					?> <a href='?page=opcart&type=<?php echo "$aux"; ?>&sc=add&code=<?php echo "{$var->getCode()}"; ?>'> <?php
+				}
+				else{ 
+					?><a href='?page=err&code=1'><?php
+				}
+				?> <img class='cart-art-image' src='assets/images/cart.jpg' alt='Aggiungi al carrello'></a> <?php
+			} else {
+				?><img class='cart-art-image' src='assets/images/cart.jpg' alt='Aggiungi al carrello'><?php
+			} ?>
 		</div>
 	</div><!--
 	
@@ -160,6 +162,7 @@
 					</tbody>
 				</table>
 		<?php }
+			$mysqli->close();
 	?>
 	</div>
 </div>

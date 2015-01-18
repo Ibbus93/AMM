@@ -13,7 +13,7 @@
 			echo "Errore nella query di selezione.<br><br>";
 		}elseif($result->num_rows > 0){
 				
-			$query = "DELETE FROM computer WHERE marca LIKE '$marca' AND modello LIKE '$modello';";
+			$query = "DELETE FROM $type WHERE marca LIKE '$marca' AND modello LIKE '$modello';";
 			$result = $mysqli->query($query);
 			
 			if(!$result)
@@ -34,7 +34,7 @@ else {
 			<label>
 				Tipo (monitor/computer)
 				<input type="text" name="type" placeholder="monitor/computer" maxlength='8' title="Inserisci il tipo di articolo" required>
-			</label>
+			</label><br>
 			<label>
 				Marca
 				<input type="text" name="marca" placeholder="Marca" maxlength='30' title="Inserisci la marca" required>

@@ -38,7 +38,7 @@
 		        
 	?>
 		        
-		            <div class='box-article'>
+		            <div class='box-article box-art-w'>
 		    			<div class='box-image-article'>
 		    				<img class='image-article' src='<?php echo "{$list[$i]->getPhoto()}"; ?>' alt='<?php echo "{$list[$i]->getMarca()} {$list[$i]->getModello()}";?>'>
 		    			</div><!--
@@ -70,4 +70,5 @@
 		    		</div>
 		    	<?php	$i++;		        	
 		        } 
+	$mysqli->close();
 ?>

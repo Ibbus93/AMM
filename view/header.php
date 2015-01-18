@@ -7,11 +7,11 @@
 			if(isset($_SESSION['username'])){
 				$username = $_SESSION['username'];
 				?><a href="index.php?page=account"><?php echo "{$username}"; ?></a><!--
-				--><a href="index.php?page=logout">Logout <?php
+				--><a href="index.php?page=logout">Logout<?php
 			}
 			else{
 				?><a href="index.php?page=login">Login</a><!--
-				--><a href="index.php?page=signup">Registrati <?php
+				--><a href="index.php?page=signup">Registrati<?php
 			}
 		?></a><!--
 		--><a href="index.php?page=cart">Carrello</a>

@@ -35,13 +35,13 @@
 						
 			<label>
 				N. civico
-				<input type="number" name="numero" min='1' placeholder="Civico" title="Inserisci il tuo numero civico" required>
+				<input id="civic" type="number" name="numero" min='1' maxlength='4' placeholder="Civico" title="Inserisci il tuo numero civico" required>
 			</label>
 
 			<br>
 			<label>
 				CAP
-				<input type="text" name="cap" placeholder="CAP" pattern="^[0-9]{5}" maxlength='5' title="Il CAP (Codice Avviamento Postale) &egrave; formato da 5 numeri" required> <!-- Il pattern vuole solo 5 numeri -->
+				<input id="cap" type="text" name="cap" placeholder="CAP" pattern="^[0-9]{5}" maxlength='5' title="Il CAP (Codice Avviamento Postale) &egrave; formato da 5 numeri" required> <!-- Il pattern vuole solo 5 numeri -->
 			</label>	
 						
 			<label> <!-- inserire menu a tendina -->
@@ -51,7 +51,7 @@
 						
 			<label> <!-- inserire menu a tendina -->
 				Provincia
-				<input type="text" name="provincia" placeholder="Provincia" maxlength='2' title="Inserisci la tua provincia" required>
+				<input id="provincia" type="text" name="provincia" placeholder="Provincia" maxlength='2' title="Inserisci la tua provincia" required>
 			</label>	
 			<br>
 
@@ -73,11 +73,23 @@
 			</label>
 			<br>
 
-			<label>
-				<input type="checkbox" name="privacy" value="privacy" required> Ho letto e accettato l'informativa sulla privacy
-				</label>
+			<?php 
+			if(isset($_SESSION['username'])){
+				$value = "Esegui";
+				if($_SESSION['admin'] != $_SESSION['username']){ 
+					$value = "Registrati";
+					?>
+					<label>
+						<input id='privacy' type="checkbox" name="privacy" value="privacy" required> Ho letto e accettato l'informativa sulla privacy
+					</label> <?php
+				}
+			}else{ ?>
+				<label>
+					<input id='privacy' type="checkbox" name="privacy" value="privacy" required> Ho letto e accettato l'informativa sulla privacy
+				</label> <?php			
+			} ?>
 		</fieldset>
 					
-		<input class='reg-btn' type="submit" name="register" value="Registrati">
+		<input class='reg-btn' type="submit" name="register" value="<?php echo $value; ?>">
 	</form>
 </div>

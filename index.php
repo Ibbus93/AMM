@@ -11,12 +11,13 @@
 	include('php/Monitor_class.php');
 	include('php/Utente.php');
 	
-	if(!isset($_GET['page'])){
-		$pg = 'home'; //gestione 404
-	}
-	else
+
+	if(isset($_GET['page'])){
 		$pg = $_GET['page'];
-		
+	}else{
+		$pg = "home";
+	}
+	
 	if(isset($_GET['art']))
 		$art = $_GET['art'];
 	
@@ -28,6 +29,7 @@
 	
 	if(isset($_GET['type']))
 		$type = $_GET['type'];
+		
 	
 ?>
 
@@ -38,6 +40,10 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="assets/stylesheet/main.css">
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/script/jq/jquery-ui.css">
+    <script src="assets/script/jq/jquerymin.1.6.1.js"></script>
+    <script src="assets/script/jq/jquery-ui.js"></script>
+    
 </head>
 
 <body>

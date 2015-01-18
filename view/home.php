@@ -1,45 +1,50 @@
 <div class="row"> <!-- Usata per nome articolo o titolo pagina -->
-	<h2><a href="php/computer.php">Acer Aspire Aspire V5-122P</a></h2>
+	<h2><b>NON PERDERTI LE OFFERTE NATALIZIE!!</b></h2>
 </div>
 			
 <div> <!-- articolo-->
+	<?php				
+		$query = "SELECT * FROM computer WHERE code = 12";
+		$result = $mysqli->query($query);
+		
+		while($row = $result->fetch_row())
+			$pc = new Computer ($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7], $row[8], $row[9], $row[10], $row[11], $row[12], $row[13]);
+
+	?>
 	<div class="photo-article"> <!-- foto dell'articolo -->
-		<img class="img-art" src="assets/images/art2.jpg" alt="foto">
+		<img class="img-art" src="<?php echo "{$pc->getPhoto()}"; ?>
+		" alt="foto">
 	</div><!--
 				
-	--><div class="description-article"> <!-- Prezzo, cod articolo, marca, disponibilit? -->
-		<h2> 999.99 &#8364; </h2>
-			<?php
-				$query = "SELECT hd FROM computer WHERE marca = 'ACER'";
-				//	$result = mysql_fetch_array($query);
-					$result = $mysqli->query($query);
-				/*	while(*/$row = $result->fetch_row();
-				//	echo "{$row[0]}<br>";
-				//	}
-				echo "<p> Non perdere l'occasione!! Ha davvero " . $row[0] . " GB di HD!!!<br></p>";
-			?>
-					
+	--><div class="description-article">
+		<h2><?php echo "{$pc->getMarca()} {$pc->getModello()}"; ?></h2>
+		<h3><?php echo "{$pc->getPrice()}"; ?> &#8364; </h3>
+		<p> <br>Non perdere l'occasione!! Con <?php echo "{$pc->getHd()}"; ?> GB di HD SSD e <?php echo "{$pc->getRam()}"; ?> GB <br>
+			di RAM &egrave; il miglior netbook che potresti desiderare!!!<br></p>
 	</div>
 </div>
 			
 <section class="text-art"> <!-- descrizione articolo -->
-	<p>Il dibattito sull'opera leopardiana a partire dal Novecento, specialmente in relazione al pensiero esistenzialista fra gli anni trenta e cinquanta, ha portato gli esegeti ad approfondire l'analisi filosofica dei contenuti e significati dei suoi testi. </p>
-	<p>Per quanto resi specialmente nelle opere in prosa, essi trovano precise corrispondenze a livello lirico in una linea unitaria di atteggiamento esistenziale. </p>
-	<p>Riflessione filosofica ed empito poetico fanno s&igrave; che Leopardi, al pari di Schopenhauer, Nietzsche e pi&ugrave; tardi di Kafka, possa essere visto come un esistenzialista o almeno un precursore dell'Esistenzialismo.</p>
-	<p>Il dibattito sull'opera leopardiana a partire dal Novecento, specialmente in relazione al pensiero esistenzialista fra gli anni trenta e cinquanta, ha portato gli esegeti ad approfondire l'analisi filosofica dei contenuti e significati dei suoi testi. </p>
-	<p>Per quanto resi specialmente nelle opere in prosa, essi trovano precise corrispondenze a livello lirico in una linea unitaria di atteggiamento esistenziale. </p>
-	<p>Riflessione filosofica ed empito poetico fanno s&igrave; che Leopardi, al pari di Schopenhauer, Nietzsche e pi&ugrave; tardi di Kafka, possa essere visto come un esistenzialista o almeno un precursore dell'Esistenzialismo.</p>
-	<p>Il dibattito sull'opera leopardiana a partire dal Novecento, specialmente in relazione al pensiero esistenzialista fra gli anni trenta e cinquanta, ha portato gli esegeti ad approfondire l'analisi filosofica dei contenuti e significati dei suoi testi. </p>
-	<p>Per quanto resi specialmente nelle opere in prosa, essi trovano precise corrispondenze a livello lirico in una linea unitaria di atteggiamento esistenziale. </p>
-	<p>Riflessione filosofica ed empito poetico fanno s&igrave; che Leopardi, al pari di Schopenhauer, Nietzsche e pi&ugrave; tardi di Kafka, possa essere visto come un esistenzialista o almeno un precursore dell'Esistenzialismo.</p>
-	<p>Il dibattito sull'opera leopardiana a partire dal Novecento, specialmente in relazione al pensiero esistenzialista fra gli anni trenta e cinquanta, ha portato gli esegeti ad approfondire l'analisi filosofica dei contenuti e significati dei suoi testi. </p>
-	<p>Per quanto resi specialmente nelle opere in prosa, essi trovano precise corrispondenze a livello lirico in una linea unitaria di atteggiamento esistenziale. </p>
-	<p>Riflessione filosofica ed empito poetico fanno s&igrave; che Leopardi, al pari di Schopenhauer, Nietzsche e pi&ugrave; tardi di Kafka, possa essere visto come un esistenzialista o almeno un precursore dell'Esistenzialismo.</p>
-	<p>Il dibattito sull'opera leopardiana a partire dal Novecento, specialmente in relazione al pensiero esistenzialista fra gli anni trenta e cinquanta, ha portato gli esegeti ad approfondire l'analisi filosofica dei contenuti e significati dei suoi testi. </p>
-	<p>Per quanto resi specialmente nelle opere in prosa, essi trovano precise corrispondenze a livello lirico in una linea unitaria di atteggiamento esistenziale. </p>
-	<p>Riflessione filosofica ed empito poetico fanno s&igrave; che Leopardi, al pari di Schopenhauer, Nietzsche e pi&ugrave; tardi di Kafka, possa essere visto come un esistenzialista o almeno un precursore dell'Esistenzialismo.</p>
-	<p>Il dibattito sull'opera leopardiana a partire dal Novecento, specialmente in relazione al pensiero esistenzialista fra gli anni trenta e cinquanta, ha portato gli esegeti ad approfondire l'analisi filosofica dei contenuti e significati dei suoi testi. </p>
-	<p>Per quanto resi specialmente nelle opere in prosa, essi trovano precise corrispondenze a livello lirico in una linea unitaria di atteggiamento esistenziale. </p>
-	<p>Riflessione filosofica ed empito poetico fanno s&igrave; che Leopardi, al pari di Schopenhauer, Nietzsche e pi&ugrave; tardi di Kafka, possa essere visto come un esistenzialista o almeno un precursore dell'Esistenzialismo.</p>
-	<p>Il dibattito sull'opera leopardiana a partire dal Novecento, specialmente in relazione al pensiero esistenzialista fra gli anni trenta e cinquanta, ha portato gli esegeti ad approfondire l'analisi filosofica dei contenuti e significati dei suoi testi. </p>		
+	<p><b>Perch&eacute; scegliere YourBestPC?</b></p>
+	<p>
+	   YourBestPC sta dalla parte del cliente! Con oltre 3000 articoli venduti ogni mese e un rating 99.5% nei maggiori siti di opinioni,
+	   YourBestPC fa della qualit&agrave; il suo maggior vanto. Il cliente sa in che fase si trova ogni suo articolo, quando sar&agrave; 
+	   recapitato e viene avvertito di ogni minima modifica che potrebbe avvenire all'ordine effettuato!<br>
+	   Il diritto di recesso e di reso, prolungato recentemente fino a 30 giorni, &egrave; il migliore tra tutti i siti italiani!
+	</p><br>
+	
+	<p><b>&Egrave; un sito sicuro?</b></p>
+	<p>
+	   Finora la percentuale di consegna degli articoli &egrave; stata pari al 100%! Il rimborso &egrave; garantito nei primi 30 giorni, 
+	   quindi soddisfatti o rimborsati!
+	</p><br>
+
+	<p><b>In quanto tempo arrivano gli articoli a casa?</b></p>
+	<p>
+	   Grazie al servizio di consegna 'de Tziu Giuanni' al quale YourBestPC affida i suoi articoli dal 1987, il tuo ordine sar&agrave; recapitato
+	   a casa entro due giorni lavorativi!
+	</p>
 </section>
+<?php
+$mysqli->close();
+?>
